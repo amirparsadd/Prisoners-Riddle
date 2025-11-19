@@ -1,3 +1,5 @@
+const shuffle = require("shuffle-array")
+
 const average = array => array.reduce((a, b) => a + b) / array.length
 
 const prisoners = 100 // Recommended = Powers Of 10
@@ -12,7 +14,7 @@ for (let i = 0; i < simulation_count; i++) {
         boxes[i] = i
     }
 
-    boxes = require("lodash").shuffle(boxes)
+    boxes = shuffle(boxes, { copy: true })
     chance[i] = 0
 
     for (let j = 0; j < prisoners; j++) {
